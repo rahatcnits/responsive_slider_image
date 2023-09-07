@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f1f4fd;
+}
+
+.container {
+  max-width: 1200px;
+  width: 95%;
+  margin: auto;
+}
+
+.slider_wrapper {
+  position: relative;
+}
+
+.slider_wrapper .slide_button {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider_wrapper .slide_button#prev_slide {
+  left: -22px;
+  display: none;
+}
+.slider_wrapper .slide_button#next_slide {
+  right: -22px;
+}
+
+.slider_wrapper .slide_button:hover {
+  background-color: #444;
+}
+
+.slider_wrapper .image_list {
+  display: grid;
+  grid-gap: 18px;
+  font-size: 0;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.slider_wrapper .image_list::-webkit-scrollbar {
+  display: none;
+}
+
+.slider_wrapper .image_list .image_item {
+  width: 325px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.container .slider_scrollbar {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.slider_scrollbar .scrollbar_track {
+  height: 2px;
+  width: 100%;
+  background-color: #ccc;
+  position: relative;
+  border-radius: 4px;
+}
+
+.slider_scrollbar:hover .scrollbar_track {
+  height: 4px;
+}
+
+.slider_scrollbar .scrollbar_thumb:active {
+  cursor: grabbing;
+  height: 8px;
+  top: -2px;
+}
+
+.slider_scrollbar .scrollbar_thumb {
+  height: 100%;
+  width: 50%;
+  background-color: #000;
+  position: absolute;
+  border-radius: inherit;
+  cursor: grab;
+}
+
+.slider_scrollbar .scrollbar_thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  bottom: -10px;
+}
+
+@media screen and (max-width: 1023px) {
+  .slider_wrapper .slide_button {
+    display: none !important;
+  }
+  .slider_wrapper .image_list {
+    grid-gap: 10px;
+    margin-bottom: 15px;
+  }
+  .slider_wrapper .image_list .image_item {
+    width: 280px;
+    height: 380px;
+  }
+
+  .slider_scrollbar .scrollbar_thumb {
+    width: 20%;
+  }
+}
